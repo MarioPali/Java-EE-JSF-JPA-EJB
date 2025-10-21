@@ -1,0 +1,61 @@
+package jsfCDImanagedBeans;
+
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+import jakarta.enterprise.context.SessionScoped;
+import java.io.Serializable;
+
+
+
+@Named("calculatorMB")
+@jakarta.enterprise.context.RequestScoped
+//@jakarta.enterprise.context.SessionScoped
+//@jakarta.enterprise.context.ApplicationScoped
+//@RequestScoped
+public class CalculatorMB implements Serializable{
+
+    private static int objCounter=0;
+    private int objNumber;
+    
+    public CalculatorMB() {
+        objCounter++;
+        objNumber=objCounter;
+    }
+    public int getObjectNumber(){
+        return objNumber;
+    }
+
+    private double operand1=1.0, operand2, result;
+
+ 
+    public double getOperand1() {
+        return operand1;
+    }
+
+
+    public void setOperand1(double operand1) {
+        this.operand1 = operand1;
+    }
+
+
+    public double getOperand2() {
+        return operand2;
+    }
+
+
+    public void setOperand2(double operand2) {
+        this.operand2 = operand2;
+    }
+
+
+    public double getResult() {
+        return result;
+    }
+
+    public String calculate(){
+        result = operand1 + operand2;
+        return "page2";
+    }
+
+
+}
